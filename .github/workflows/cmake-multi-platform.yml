@@ -29,5 +29,5 @@ jobs:
     - name: testing
       run: |
         mkdir build;cd build
-        cmake -DCMAKE_CXX_FLAGS="-I'D:/silver/qtcan/ci/pro files/more spaces/winds'" -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -S ..
+        cmake -DCMAKE_CXX_FLAGS='-ID:/silver/qtcan/ci/pro" "files/more" "spaces/winds' -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -S ..
 
