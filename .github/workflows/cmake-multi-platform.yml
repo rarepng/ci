@@ -78,3 +78,6 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
         echo "C:/Program Files (x86)/Windows Kits/10/Include/$((ls)[0].name)/um"
+        echo "C:/Program Files (x86)/Windows Kits/10/Include/$((ls).name)/um"
+        ls "C:/Program Files (x86)/Windows Kits/10/Include/"
+
