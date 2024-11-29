@@ -15,11 +15,11 @@ jobs:
       matrix:
         os: [windows-latest]
         build_type: [Release]
-        c_compiler: [gcc]
+        c_compiler: [cl]
         include:
           - os: windows-latest
-            c_compiler: gcc
-            cpp_compiler: g++
+            c_compiler: cl
+            cpp_compiler: cl
 
     steps:
     - uses: actions/checkout@v4
@@ -36,7 +36,7 @@ jobs:
         $words=' '
         $words2=
         $winsdkinclude=
-        cmake -G Ninja -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_FLAGS="`"-ID:/a/ci/ci/program files/more rspaces/$((ls 'D:/a/ci/ci/pro files/more spaces/')[0].name)`"" -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -S ..
+        cmake -G Ninja -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_FLAGS="`"-ID:/a/ci/ci/program files/more rspaces/$((ls 'D:/a/ci/ci/pro files/more spaces/')[0].name)`"" -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -S ..
         ninja
         cd ..
         ./ci
