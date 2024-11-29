@@ -30,7 +30,7 @@ jobs:
       run: |
         choco install -y ninja
         mkdir build;cd build
-        #ls "C:/Program Files (x86)/Windows Kits/10/Include"
+        ls "C:/Program Files (x86)/Windows Kits/10/Include"
         $f="'"
         $r='"'
         $words=' '
