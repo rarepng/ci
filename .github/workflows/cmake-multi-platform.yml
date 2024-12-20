@@ -34,7 +34,7 @@ jobs:
         pwd
         cd D:/a/ci/ci
         pwsh -c 'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" -o ossl.tar.gz'
-        tar -xvfz ossl.tar.gz
+        tar -xvzf ossl.tar.gz
         pwd
         ls
     - shell: msys2 {0}
