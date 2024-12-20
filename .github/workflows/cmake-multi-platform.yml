@@ -26,18 +26,21 @@ jobs:
       with:
         submodules: true
         fetch-depth: 0
-    - name: testing
+    - uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+    - name: installing more depens
       run: |
-        choco install -y ninja
-        mkdir build;cd build
-        ls "C:/Program Files (x86)/Windows Kits/10/Include"
-        $f="'"
-        $r='"'
-        $words=' '
-        $words2=
-        $winsdkinclude=
-        cmake -G Ninja -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_FLAGS="`"-ID:/a/ci/ci/program files/more rspaces/$((ls 'D:/a/ci/ci/pro files/more spaces/')[0].name)`"" -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -S ..
-        ninja
-        cd ..
-        ./ci
-
+        choco install -y ninja msys2 7zip
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --apply-install-arguments-to-dependencies
+        cd D:/a/raw/raw
+        'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" | tar -xz'
+        pwd
+        ls
+    - shell: msys2 {0}
+      run: |
+        cd "/d/a/raw/raw/openssl-3.4.0"
+        pacman -S make
+        export OPENSSL_USE_STATIC_LIBS=ON
+        ./Configure --prefix=$PWD/dist no-idea no-mdc2 no-rc5 no-shared mingw64
+        make depend && make && make install
