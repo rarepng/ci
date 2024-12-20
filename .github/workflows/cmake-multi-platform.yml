@@ -32,10 +32,8 @@ jobs:
     - name: installing more depens
       run: |
         pwd
-        choco install -y ninja msys2 7zip
-        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --apply-install-arguments-to-dependencies
         cd D:/a/ci/ci
-        'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" | tar -xz'
+        pwsh -c 'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" | tar -xz'
         pwd
         ls
     - shell: msys2 {0}
