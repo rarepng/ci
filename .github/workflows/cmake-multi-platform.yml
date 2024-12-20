@@ -31,15 +31,16 @@ jobs:
         msystem: MINGW64
     - name: installing more depens
       run: |
+        pwd
         choco install -y ninja msys2 7zip
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --apply-install-arguments-to-dependencies
-        cd D:/a/raw/raw
+        cd D:/a/ci/ci
         'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" | tar -xz'
         pwd
         ls
     - shell: msys2 {0}
       run: |
-        cd "/d/a/raw/raw/openssl-3.4.0"
+        cd "/d/a/ci/ci/openssl-3.4.0"
         pacman -S make
         export OPENSSL_USE_STATIC_LIBS=ON
         ./Configure --prefix=$PWD/dist no-idea no-mdc2 no-rc5 no-shared mingw64
