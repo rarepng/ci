@@ -32,7 +32,7 @@ jobs:
         msystem: MINGW64
     - name: installing more depens
       run: |
-        where g++
+        Get-Command g++
         pwd
         cd D:/a/ci/ci
         pwsh -c 'curl -L "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz" -o ossl.tar.gz'
